@@ -1,0 +1,186 @@
+MySQL Shell 8.0.15
+
+Copyright (c) 2016, 2019, Oracle and/or its affiliates. All rights reserved.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+
+ MySQL  JS > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Please provide the password for 'root@localhost': ****
+Save password for 'root@localhost'? [Y]es/[N]o/Ne[v]er (default No): n
+Fetching schema names for autocompletion... Press ^C to stop.
+Your MySQL connection id is 29
+Server version: 8.0.15 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+
+ MySQL  localhost:3306 ssl  JS > \sql
+Switching to SQL mode... Commands end with ;
+
+ MySQL  localhost:3306 ssl  SQL > use eva_3
+Default schema set to `eva_3`.
+Fetching table and column names from `eva_3` for auto-completion... Press ^C to stop.
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > show tables;
++-----------------+
+| Tables_in_eva_3 |
++-----------------+
+| actores         |
+| copia_actor     |
+| numeros         |
++-----------------+
+3 rows in set (0.0017 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select left('Gerardo Eluviani',1);
++----------------------------+
+| left('Gerardo Eluviani',1) |
++----------------------------+
+| G                          |
++----------------------------+
+1 row in set (0.0343 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select left('Fernandez',2);
++---------------------+
+| left('Fernandez',2) |
++---------------------+
+| Fe                  |
++---------------------+
+1 row in set (0.0006 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select dayofmonth('2001-11-23');
++--------------------------+
+| dayofmonth('2001-11-23') |
++--------------------------+
+|                       23 |
++--------------------------+
+1 row in set (0.0416 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select month('2001-11-23');
++---------------------+
+| month('2001-11-23') |
++---------------------+
+|                  11 |
++---------------------+
+1 row in set (0.0006 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select year('2001-11-23');
++--------------------+
+| year('2001-11-23') |
++--------------------+
+|               2001 |
++--------------------+
+1 row in set (0.0167 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ',1998-08-21);
+ERROR: 1292 (22007): Incorrect date value: '1969' for column 'fecha_nac' at row 1
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21');
+ERROR: 1366 (HY000): Incorrect integer value: 'FECG19980821' for column 'generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21')' at row 1
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21');
+ERROR: 1366 (HY000): Incorrect integer value: 'FECG980821' for column 'generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21')' at row 1
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21');
++-------------------------------------------------------------------+
+| generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21') |
++-------------------------------------------------------------------+
+| FECG980821                                                        |
++-------------------------------------------------------------------+
+1 row in set (0.0017 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select rand();
++---------------------+
+| rand()              |
++---------------------+
+| 0.25132578355383667 |
++---------------------+
+1 row in set (0.0170 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select rand()*1000;
++-------------------+
+| rand()*1000       |
++-------------------+
+| 746.3892062626678 |
++-------------------+
+1 row in set (0.0182 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select rand()*1000;
++-------------------+
+| rand()*1000       |
++-------------------+
+| 977.9687113854743 |
++-------------------+
+1 row in set (0.0005 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select rand()*1000;
++-------------------+
+| rand()*1000       |
++-------------------+
+| 650.6759688730128 |
++-------------------+
+1 row in set (0.0005 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select rand()*1000;
++-------------------+
+| rand()*1000       |
++-------------------+
+| 319.4737409422861 |
++-------------------+
+1 row in set (0.0005 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select rand()*1000;
++-------------------+
+| rand()*1000       |
++-------------------+
+| 645.3408288260371 |
++-------------------+
+1 row in set (0.0005 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select rand()*1000;
++-------------------+
+| rand()*1000       |
++-------------------+
+| 268.2829520369721 |
++-------------------+
+1 row in set (0.0004 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select rand()*1000;
++-------------------+
+| rand()*1000       |
++-------------------+
+| 405.3923044403943 |
++-------------------+
+1 row in set (0.0005 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select floor(rand()*1000);
++--------------------+
+| floor(rand()*1000) |
++--------------------+
+|                222 |
++--------------------+
+1 row in set (0.0868 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21');
++-------------------------------------------------------------------+
+| generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21') |
++-------------------------------------------------------------------+
+| NULL                                                              |
++-------------------------------------------------------------------+
+1 row in set (0.0014 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21');
++-------------------------------------------------------------------+
+| generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21') |
++-------------------------------------------------------------------+
+| NULL                                                              |
++-------------------------------------------------------------------+
+1 row in set (0.0012 sec)
+
+ MySQL  localhost:3306 ssl  eva_3  SQL > select generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21');
++-------------------------------------------------------------------+
+| generar_rfc('GERARDO ELUVIANI','FERNANDEZ','CORTEZ','1998-08-21') |
++-------------------------------------------------------------------+
+| FECG980821344                                                     |
++-------------------------------------------------------------------+
+1 row in set (0.0014 sec)
